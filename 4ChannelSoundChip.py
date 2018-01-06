@@ -1,4 +1,23 @@
-import random, wave, struct, math, time
+"""
+ AUTHOR: Mitchell Golding 2018
+
+ This is the back end portion of the 4ChannelSoundChip system.
+ Mostly this just defines the complicated parts of writing out
+ specific sound waves to a wave file in a 'simplified' manner.
+
+ I guess if you wanna see how stuff gets done this is a nice place
+ to look, but it's NOT necessary to understand this hidden layer
+ to work the program competently.
+"""
+
+import random, wave, struct, math
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#       BACK END GEN STUFF. IF YOU AREN'T THE DEV, YOU SHOULDN'T BE HERE
+#
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 def generate(freq, volume, kind,  num, samples):
     toret = []
@@ -33,8 +52,18 @@ def generate(freq, volume, kind,  num, samples):
     
     return toret
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#
+#
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#                           EXAMPLE WRITE TO WAVE FILE
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 def writes(samples):
-    wav = wave.open("output.wav", 'w')
+    wav = wave.open("test_output.wav", 'w')
     wav.setparams((2,2,44100,samples,"NONE","not compressed"))
 
     remaining = samples
